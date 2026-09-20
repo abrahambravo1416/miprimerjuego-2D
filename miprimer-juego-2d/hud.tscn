@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cxirvujsqicuw"]
+
+[ext_resource type="Script" uid="uid://cwslmhios7xdx" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="FontFile" uid="uid://cjal01dwjlia1" path="res://fonts/Xolonium-Regular.ttf" id="2_8sq4i"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1932922020]
+script = ExtResource("1_64ctp")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=64539293]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="." unique_id=759335195]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -86.0
+offset_right = 238.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 20
+text = "¡Esquiva a los asaltantes de Av. Olimpica!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="." unique_id=1985442187]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.546
+anchor_right = 0.5
+anchor_bottom = 0.546
+offset_left = -115.0
+offset_top = 186.88
+offset_right = 107.0
+offset_bottom = 286.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+autowrap_mode = 2
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=435289690]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
